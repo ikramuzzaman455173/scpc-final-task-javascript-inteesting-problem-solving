@@ -36,16 +36,53 @@ sumPositiveNum([2, -5, 10, -3, 7])
 // Example Input: [3, 5, 2, 5, 3, 3, 1, 4, 5] Example Output: 3
 console.log(`Task 3: Write a JavaScript program to find the most frequent element in an array and return it?`);
 // let ary = [3, 5, 2, 5, 3, 3, 1, 4, 5]
-function findFrequentValueAry(ary) {
-  let a={}
-  ary.map(x => {
-    x
-  })
+function findMostFrequentElement(arr) {
+  const frequency = {};
+  let mostFrequentElement;
+  let highestFrequency = 0;
+
+  arr.forEach((element) => {
+    frequency[element] = (frequency[element] || 0) + 1;
+
+    if (frequency[element] > highestFrequency) {
+      highestFrequency = frequency[element];
+      mostFrequentElement = element;
+    }
+  });
+
+  return mostFrequentElement;
 }
+
+// Example usage:
+const inputArray = [3, 5, 2, 5, 3, 3, 1, 4, 5];
+const mostFrequent = findMostFrequentElement(inputArray);
+console.log("Most frequent element:", mostFrequent,'\n'); // Output: 3
+
 /* Task 4: Create a function that takes a sorted array of numbers and a target value as input. The function should find two numbers in the array that add up to the target value. Return an array containing the indices of the two numbers. */
 
 //  Example Input: ([1, 3, 6, 8, 11, 15], 9) Example Output: [1, 2] (numbers at indices 1 and 2: 3 + 6 = 9)
+console.log(`Task 4: Create a function that takes a sorted array of numbers and a target value as input. The function should find two numbers in the array that add up to the target value. Return an array containing the indices of the two numbers ?`);
+function findTwoNumbersWithSum(sortedArray, target) {
+  const numToIndexMap = {};
 
+  for (let i = 0; i < sortedArray.length; i++) {
+    const complement = target - sortedArray[i];
+
+    if (complement in numToIndexMap) {
+      return [numToIndexMap[complement], i];
+    }
+
+    numToIndexMap[sortedArray[i]] = i;
+  }
+
+  return [];
+}
+
+// Example usage:
+const sortedArray = [1, 3, 6, 8, 11, 15];
+const targetValue = 9;
+const result = findTwoNumbersWithSum(sortedArray, targetValue);
+console.log("Indices of the two numbers:", result,'\m');
 
 /* Task 5: Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation. */
 
