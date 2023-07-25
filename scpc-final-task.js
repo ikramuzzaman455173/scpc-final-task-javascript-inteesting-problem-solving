@@ -85,12 +85,59 @@ const result = findTwoNumbersWithSum(sortedArray, targetValue);
 console.log("Indices of the two numbers:", result,'\m');
 
 /* Task 5: Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation. */
+console.log(`Task 5: Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation? \n`);
+
+function calculator(num1, operator, num2) {
+  if (operator === '+') {
+    return num1 + num2;
+  } else if (operator === '-') {
+    return num1 - num2;
+  } else if (operator === '*') {
+    return num1 * num2;
+  } else if (operator === '/') {
+    return num1 / num2;
+  } else {
+    return("Invalid operator");
+  }
+}
+
+const number1 = 10;
+const number2 = 5;
+const operation = '+';
+const results = calculator(number1, operation, number2);
+console.log("Result:", results);
 
 
 /* Task 6: Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
  */
+console.log(`Task 6: Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters ?`);
+
+const generateRandomPassword = (length) => {
+  const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+  const numericChars = '0123456789';
+  const specialChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+  const allChars = uppercaseChars + lowercaseChars + numericChars + specialChars;
+  let password = '';
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * allChars.length);
+    password += allChars[randomIndex];
+  }
+
+  return password;
+};
+
+// Example usage to generate a random password of length 12:
+const passwordLength = 12;
+const randomPassword = generateRandomPassword(passwordLength);
+console.log("Random Password:", randomPassword,'\n');
+
 
 /* Task 7: Implement a function that converts a Roman numeral to an integer. The function should take a Roman numeral string (e.g., "IX" or "XXI") as input and return the corresponding integer value. */
 
 
 /* Task 8: Implement a JavaScript function to find the second smallest element in an array of numbers. The function should return the second smallest number. */
+
+
